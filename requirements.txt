@@ -9,3 +9,4 @@ python-dotenv
 streamlit-chat==0.0.2.2
 sentence-transformers
 chromadb
+sqlite3
