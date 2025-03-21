@@ -31,8 +31,7 @@ def find_match(input):
 def query_refiner(conversation, query):
   #  if not conversation or not query:
    #     return query
-    #api_key1 = st.secrets["GROQ_API_KEY"]
-    api_key1 = "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"
+    api_key1 = st.secrets["GROQ_API_KEY"]
     client = Groq(api_key=api_key1)
     response = client.chat.completions.create(
     model="llama-3.3-70b-versatile",
