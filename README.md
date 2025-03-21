@@ -2,13 +2,13 @@
 
 📌 Overview
 
-The Helpdesk Chatbot is an AI-powered conversational agent designed to assist users with their queries in a friendly and natural way. Built using Streamlit, ChromaDB, and LangChain, it integrates Groq's LLaMA 3.3 70B Versatile model to provide accurate responses with memory retention.
+The Helpdesk Chatbot is an AI-powered conversational agent designed to assist users with their queries in a friendly and natural way. Built using Streamlit, FAISS, and LangChain, it integrates Groq's LLaMA 3.3 70B Versatile model to provide accurate responses with memory retention.
 
 🚀 Features
 
 - Conversational Memory: Maintains context using ConversationBufferWindowMemory.
 
-- ChromaDB Integration: Retrieves the most relevant context to answer queries.
+- FAISS Integration: Retrieves the most relevant context to answer queries.
 
 - Refined Query Processing: Enhances user input before passing it to the LLM.
 
@@ -22,7 +22,7 @@ The Helpdesk Chatbot is an AI-powered conversational agent designed to assist us
 
 - Backend: Python, LangChain
 
-- Database: ChromaDB
+- Database: FAISS
 
 - LLM: Groq's LLaMA 3.3 70B Versatile
 
