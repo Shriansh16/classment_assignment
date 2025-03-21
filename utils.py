@@ -25,13 +25,14 @@ def download_embeddings():
 def find_match(input):
     persist_directory = 'faiss_index'
     embedding=download_embeddings()
-    vectorstore = FAISS.load_local(persist_directory, embedding)
+    vectorstore = FAISS.load_local(persist_directory, embedding,allow_dangerous_deserialization=True)
     result = vectorstore.similarity_search(input, k=5)
     return result
 def query_refiner(conversation, query):
   #  if not conversation or not query:
    #     return query
-    api_key1 = st.secrets["GROQ_API_KEY"]
+    #api_key1 = st.secrets["GROQ_API_KEY"]
+    api_key1 = "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"
     client = Groq(api_key=api_key1)
     response = client.chat.completions.create(
     model="llama-3.3-70b-versatile",
