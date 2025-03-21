@@ -1,12 +1,11 @@
 from sentence_transformers import SentenceTransformer
 import os
 import streamlit as st
-from langchain.vectorstores import Chroma
+from langchain.vectorstores import FAISS
 from langchain.embeddings import HuggingFaceEmbeddings
 from groq import Groq
 from langchain.document_loaders import DirectoryLoader
 from langchain.document_loaders import PyPDFLoader
-pkey=st.secrets["pkey"]
 
 
 import pickle
@@ -24,10 +23,10 @@ def download_embeddings():
 
     return embedding
 def find_match(input):
-    persist_directory = 'chroma_db'
-    vectordb = Chroma(persist_directory=persist_directory, embedding_function=download_embeddings())
-    retriever = vectordb.as_retriever(search_kwargs={"k": 5})
-    result = retriever.get_relevant_documents(input)
+    persist_directory = 'faiss_index'
+    embedding=download_embeddings()
+    vectorstore = FAISS.load_local(persist_directory, embedding)
+    result = vectorstore.similarity_search(input, k=5)
     return result
 def query_refiner(conversation, query):
   #  if not conversation or not query:
