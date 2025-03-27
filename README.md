@@ -1,4 +1,4 @@
-# Helpdesk Chatbot with Streamlit & ChromaDB
+# Helpdesk Chatbot with Streamlit & FAISS DB
 
 📌 Overview
 
